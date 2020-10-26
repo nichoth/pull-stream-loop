@@ -5,6 +5,7 @@
   "dependencies": {
     "htm": "^3.0.4",
     "preact": "^10.5.5",
+    "pull-pushable": "^2.2.0",
     "pull-scan": "^1.0.0",
     "pull-stream": "^3.6.14"
   },
