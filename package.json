@@ -1,13 +1,10 @@
 {
-  "name": "demo-preact-pull",
+  "name": "@nichoth/pull-stream-loop",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "dependencies": {
-    "htm": "^3.0.4",
-    "preact": "^10.5.5",
     "pull-many": "^1.0.9",
     "pull-pushable": "^2.2.0",
-    "pull-scan": "^1.0.0",
     "pull-stream": "^3.6.14"
   },
   "devDependencies": {
@@ -15,7 +12,10 @@
     "budo": "^11.6.4",
     "concurrently": "^5.3.0",
     "esmify": "^2.1.1",
+    "htm": "^3.0.4",
     "node-sass": "^4.14.1",
+    "preact": "^10.5.5",
+    "pull-scan": "^1.0.0",
     "uglifyify": "^5.0.2",
     "unassertify": "^2.1.1"
   },
@@ -26,11 +26,8 @@
     "build-js": "browserify -p esmify src/index.js -g unassertify -g uglifyify -mc > public/bundle.js",
     "build": "npm run build-css && npm run build-js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build-css && concurrently --kill-others \"npm run watch-css\" \"npm run serve\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nichoth/demo-preact-pull.git"
+    "start": "npm run build-css && concurrently --kill-others \"npm run watch-css\" \"npm run serve\"",
+    "postversion": "git push && git push --tags"
   },
   "author": "Nick Thomas <nichoth@gmail.com>",
   "license": "ISC",
@@ -38,5 +35,12 @@
     "url": "https://github.com/nichoth/demo-preact-pull/issues"
   },
   "homepage": "https://github.com/nichoth/demo-preact-pull#readme",
-  "description": ""
+  "description": "A rendering loop made with [pull streams](https://pull-stream.github.io/)",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nichoth/pull-stream-loop.git"
+  }
 }
