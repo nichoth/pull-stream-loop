@@ -2,6 +2,16 @@
   "name": "@nichoth/pull-stream-loop",
   "version": "0.0.0",
   "main": "src/index.js",
+  "scripts": {
+    "build-css": "node-sass src/style/main.scss > public/style.css",
+    "watch-css": "node-sass --watch src/style/main.scss --source-map-embed public/style.css",
+    "serve": "budo example/index.js:bundle.js --pushstate --dir=public --live -- -p esmify -t uglifyify -dv",
+    "build-js": "browserify -p esmify src/index.js -g unassertify -g uglifyify -mc > public/bundle.js",
+    "build": "npm run build-css && npm run build-js",
+    "test": "tape test/*.js",
+    "start": "npm run build-css && concurrently --kill-others \"npm run watch-css\" \"npm run serve\"",
+    "postversion": "git push && git push --tags"
+  },
   "dependencies": {
     "pull-many": "^1.0.9",
     "pull-pushable": "^2.2.0",
@@ -16,18 +26,9 @@
     "node-sass": "^4.14.1",
     "preact": "^10.5.5",
     "pull-scan": "^1.0.0",
+    "tape": "^5.0.1",
     "uglifyify": "^5.0.2",
     "unassertify": "^2.1.1"
-  },
-  "scripts": {
-    "build-css": "node-sass src/style/main.scss > public/style.css",
-    "watch-css": "node-sass --watch src/style/main.scss --source-map-embed public/style.css",
-    "serve": "budo example/index.js:bundle.js --pushstate --dir=public --live -- -p esmify -t uglifyify -dv",
-    "build-js": "browserify -p esmify src/index.js -g unassertify -g uglifyify -mc > public/bundle.js",
-    "build": "npm run build-css && npm run build-js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build-css && concurrently --kill-others \"npm run watch-css\" \"npm run serve\"",
-    "postversion": "git push && git push --tags"
   },
   "author": "Nick Thomas <nichoth@gmail.com>",
   "license": "ISC",

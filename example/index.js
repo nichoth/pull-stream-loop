@@ -44,8 +44,7 @@ function MyApp (props) {
 }
 
 
-function Clicker (props) {
-    var { emit } = props
+function Clicker ({ emit }) {
     return html`<button onclick=${emit('click')}>click</button>`
 }
 
