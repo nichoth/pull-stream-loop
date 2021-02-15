@@ -1,5 +1,4 @@
 # pull stream loop
-
 Helpers to create a rendering loop with [pull streams](https://pull-stream.github.io/)
 
 ## install
