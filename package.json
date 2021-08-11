@@ -10,7 +10,7 @@
     "build": "npm run build-css && npm run build-js",
     "test": "tape test/*.js",
     "start": "npm run build-css && concurrently --kill-others \"npm run watch-css\" \"npm run serve\"",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags && npm publish"
   },
   "dependencies": {
     "pull-many": "^1.0.9",
