@@ -35,7 +35,7 @@
   "bugs": {
     "url": "https://github.com/nichoth/demo-preact-pull/issues"
   },
-  "homepage": "https://github.com/nichoth/demo-preact-pull#readme",
+  "homepage": "https://github.com/nichoth/pull-stream-loop",
   "description": "A rendering loop made with [pull streams](https://pull-stream.github.io/)",
   "directories": {
     "example": "example"
